@@ -1,12 +1,25 @@
+var images = [
+    "donut.jpg",
+    "donut.jpg",
+    "donut.jpg",
+    "donut.jpg",
+    "donut.jpg"
+];
+
 var pics = [];
-for(var i = 0; i < 5; ++i){
+var number = 10;
+var length = 100/number;
+var picdimension = length * 18 / 20;
+var offset = length - picdimension;
+
+for(var i = 0; i < images.length; ++i){
     var elem = document.createElement('img');
-    elem.src = "donut.jpg";
-    elem.style.width = "18vw";
-    elem.style.height = "18vw";
-    elem.style.top = "1vw";
+    elem.style.width = picdimension.toString() + "vw";
+    elem.style.height = picdimension.toString() + "vw";
+    elem.style.top = offset.toString() + "vw";
     elem.style.position = "absolute";
-    elem.style.left = (1 + 20 * i).toString() + "vw";
+    elem.style.left = (offset + length * i).toString() + "vw";
+    elem.src = images[i];
     document.body.append(elem);
     pics.push(elem);
 }
