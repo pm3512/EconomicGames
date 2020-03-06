@@ -1,9 +1,9 @@
 var images_names = [
-    "donut.jpg",
-    "donut.jpg",
-    "square.jpg",
-    "donut.jpg",
-    "donut.jpg"
+    "res/circle.jpg",
+    "res/donut.jpg",
+    "res/square.jpg",
+    "res/donut.jpg",
+    "res/donut.jpg"
 ];
 
 var images = [];
