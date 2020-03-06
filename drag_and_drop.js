@@ -1,11 +1,21 @@
+unlock_drag_and_drop();
 for(var i = 0; i < images.length; ++i) {
-    images[i].setAttribute("draggable", "true");
     images[i].setAttribute("ondrop", "drop(event)");
     images[i].setAttribute("ondragover", "allowDrop(event)");
     images[i].setAttribute("ondragstart", "drag(event)");
 }
 
 var drag_and_drop_sound = new Audio('res/drag_and_drop_sound.wav');
+
+function lock_drag_and_drop() {
+    for(var i = 0; i < images.length; i++)
+        images[i].setAttribute("draggable", "false");
+}
+
+function unlock_drag_and_drop() {
+    for(var i = 0; i < images.length; i++)
+        images[i].setAttribute("draggable", "true");
+}
 
 function allowDrop(event) {
     event.preventDefault();
