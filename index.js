@@ -11,7 +11,7 @@ var length = 100/images_names.length;
 var picdimension = length * 18 / 20;
 var offset = length - picdimension;
 
-let game = document.getElemenentById('game');
+var game = document.getElementById("game");
 
 for(var i = 0; i < images_names.length; ++i){
     var elem = document.createElement("img");
