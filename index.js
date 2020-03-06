@@ -10,6 +10,7 @@ var images = [];
 var length = 100/images_names.length;
 var picdimension = length * 18 / 20;
 var offset = length - picdimension;
+var sorted = false;
 
 var game = document.getElementById("game");
 
@@ -33,5 +34,13 @@ button.style.height = (picdimension / 3).toString() + "vw";
 button.style.top = length.toString() + "vw";
 button.style.left =(offset + length * ((images_names.length - 1) / 2)).toString()  + "vw";
 button.src = "res/square.jpg";
-button.setAttribute("draggable", "false");
+
+function finish_sort(){
+    lock_drag_and_drop();
+    sorted = false;
+}
+
+button.onclick = finish_sort;
+button.draggable = false;
 game.append(button);
+

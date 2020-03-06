@@ -1,20 +1,21 @@
 unlock_drag_and_drop();
 for(var i = 0; i < images.length; ++i) {
-    images[i].setAttribute("ondrop", "drop(event)");
-    images[i].setAttribute("ondragover", "allowDrop(event)");
-    images[i].setAttribute("ondragstart", "drag(event)");
+    images[i].ondrop = drop;
+    images[i].ondragover = allowDrop;
+    images[i].ondragstart = drag;
 }
 
 var drag_and_drop_sound = new Audio('res/drag_and_drop_sound.wav');
 
 function lock_drag_and_drop() {
     for(var i = 0; i < images.length; i++)
-        images[i].setAttribute("draggable", "false");
+        images[i].draggable = false;
 }
 
 function unlock_drag_and_drop() {
-    for(var i = 0; i < images.length; i++)
-        images[i].setAttribute("draggable", "true");
+    for(var i = 0; i 
+        < images.length; i++)
+        images[i].draggable = true;
 }
 
 function allowDrop(event) {
