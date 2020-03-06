@@ -26,17 +26,12 @@ for(var i = 0; i < images_names.length; ++i){
     images.push(elem);
 }
 
-var button = document.createElement("ready");
+var button = document.createElement("img");
 button.style.position = "absolute";
 button.style.width = picdimension.toString() + "vw";
 button.style.height = (picdimension / 3).toString() + "vw";
 button.style.top = length.toString() + "vw";
 button.style.left =(offset + length * ((images_names.length - 1) / 2)).toString()  + "vw";
+button.src = "res/square.jpg";
+button.setAttribute("draggable", "false");
 game.append(button);
-var button_text = document.createElement("text");
-button_text.innerText = "ready";
-button_text.style.textAlign = "center";
-button_text.style.display = "table-cell";
-button_text.style.verticalAlign = "middle";
-button_text.style.position = "relative";
-button.appendChild(button_text);
