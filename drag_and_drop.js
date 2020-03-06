@@ -1,21 +1,22 @@
-unlock_drag_and_drop();
-for(var i = 0; i < images.length; ++i) {
+for (var i = 0; i < images.length; ++i) {
     images[i].ondrop = drop;
     images[i].ondragover = allowDrop;
     images[i].ondragstart = drag;
+    images[i].draggable = true;
 }
 
 var drag_and_drop_sound = new Audio('res/drag_and_drop_sound.wav');
 
 function lock_drag_and_drop() {
-    for(var i = 0; i < images.length; i++)
-        images[i].draggable = false;
+    for (var i = 0; i < images.length; i++) {
+        images[i].ondragstart = null;
+    }
 }
 
 function unlock_drag_and_drop() {
-    for(var i = 0; i 
-        < images.length; i++)
-        images[i].draggable = true;
+    for (var i = 0; i < images.length; i++) ф{
+        images[i].ondragstart = drag;
+    }
 }
 
 function allowDrop(event) {
@@ -34,4 +35,4 @@ function drop(event) {
     document.getElementById(data).src = event.target.src;
     event.target.src = temp_src;
     drag_and_drop_sound.play();
-  }
+}

@@ -14,7 +14,7 @@ var sorted = false;
 
 var game = document.getElementById("game");
 
-for(var i = 0; i < images_names.length; ++i){
+for (var i = 0; i < images_names.length; ++i) {
     var elem = document.createElement("img");
     elem.style.width = picdimension.toString() + "vw";
     elem.style.height = picdimension.toString() + "vw";
@@ -35,7 +35,7 @@ button.style.top = length.toString() + "vw";
 button.style.left =(offset + length * ((images_names.length - 1) / 2)).toString()  + "vw";
 button.src = "res/square.jpg";
 
-function finish_sort(){
+function finish_sort() {
     lock_drag_and_drop();
     sorted = false;
 }
@@ -43,4 +43,3 @@ function finish_sort(){
 button.onclick = finish_sort;
 button.draggable = false;
 game.append(button);
-
