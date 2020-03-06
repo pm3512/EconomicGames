@@ -50,6 +50,7 @@ function finish_sort() {
 function right() {
     this.onclick = null;
     this.src = "res/right.png";
+    setTimeout(function(){ location.reload(); }, 2000);
 }
 
 function wrong() {
