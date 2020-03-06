@@ -5,7 +5,7 @@ for (var i = 0; i < images.length; ++i) {
     images[i].draggable = true;
 }
 
-var drag_and_drop_sound = new Audio("res/drag_and_drop_sound.wav");
+var drag_and_drop_sound = new Audio('res/drag_and_drop_sound.wav');
 
 function lock_drag_and_drop() {
     for (var i = 0; i < images.length; i++) {
