@@ -1,7 +1,7 @@
 var images_names = [
     "donut.jpg",
     "donut.jpg",
-    "donut.jpg",
+    "square.jpg",
     "donut.jpg",
     "donut.jpg"
 ];
@@ -19,6 +19,7 @@ for(var i = 0; i < images_names.length; ++i){
     elem.style.position = "absolute";
     elem.style.left = (offset + length * i).toString() + "vw";
     elem.src = images_names[i];
+    elem.id = "image_" + i;
     document.body.append(elem);
     images.push(elem);
 }
