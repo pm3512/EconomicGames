@@ -10,9 +10,9 @@ var images = [];
 var length = 100/images_names.length;
 var picdimension = length * 18 / 20;
 var offset = length - picdimension;
-var sorted = false;
 
 var game = document.getElementById("game");
+var msg = document.createElement("p");
 
 for (var i = 0; i < images_names.length; ++i) {
     var elem = document.createElement("img");
@@ -36,8 +36,25 @@ button.style.left =(offset + length * ((images_names.length - 1) / 2)).toString(
 button.src = "res/square.jpg";
 
 function finish_sort() {
+    this.parentNode.removeChild(this);
     lock_drag_and_drop();
-    sorted = false;
+    for (let i = 0; i < images_names.length; ++i) {
+        if (i == images_names.length - 2) {
+            images[i].onclick = right;
+        } else {
+            images[i].onclick = wrong;
+        }
+    }
+}
+
+function right() {
+    this.onclick = null;
+    this.src = "res/right.png";
+}
+
+function wrong() {
+    this.onclick = null;
+    this.src = "res/wrong.png";
 }
 
 button.onclick = finish_sort;

@@ -1,11 +1,11 @@
 for (var i = 0; i < images.length; ++i) {
     images[i].ondrop = drop;
-    images[i].ondragover = allowDrop;
+    images[i].ondragover = allow_drop;
     images[i].ondragstart = drag;
     images[i].draggable = true;
 }
 
-var drag_and_drop_sound = new Audio('res/drag_and_drop_sound.wav');
+var drag_and_drop_sound = new Audio("res/drag_and_drop_sound.wav");
 
 function lock_drag_and_drop() {
     for (var i = 0; i < images.length; i++) {
@@ -14,14 +14,14 @@ function lock_drag_and_drop() {
 }
 
 function unlock_drag_and_drop() {
-    for (var i = 0; i < images.length; i++) ф{
+    for (var i = 0; i < images.length; i++) {
         images[i].ondragstart = drag;
     }
 }
 
-function allowDrop(event) {
+function allow_drop(event) {
     event.preventDefault();
-  }
+}
   
 function drag(event) {
     event.dataTransfer.setData("text", event.target.id);
