@@ -14,9 +14,6 @@ function allowDrop(event) {
 function drag(event) {
     event.dataTransfer.setData("text", event.target.id);
     event.dataTransfer.effectAllowed = "move";
-    var temp_img = new Image;
-    temp_img.src = event.target.src;
-    event.dataTransfer.setDragImage(temp_img, 0, 0);
 }
   
 function drop(event) {
