@@ -57,14 +57,18 @@ function finish_sort() {
 }
 
 function right() {
+    this.parentNode.removeChild(this);
     this.onclick = null;
     this.src = "res/right.png";
     msg.innerHTML = "Отлично";
+    msg.style.top = "10vh";
+    msg.style.fontSize = "30vh";
     for (let i = 0; i < images_names.length; ++i){
         if (i != images_names.length - 2) {
             images[i].parentNode.removeChild(images[i]);
         }
     }
+    confetti.start();
     setTimeout(function(){ location.reload(); }, 2000);
 }
 
