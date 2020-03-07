@@ -6,6 +6,9 @@ var images_names = [
     "res/donut.png"
 ];
 
+var success_sound = new Audio();
+success_sound.src = "res/success_sound.mp3";
+success_sound.volume = 0.3;
 var images = [];
 var length = 100/images_names.length;
 var picdimension = length * 18 / 20;
@@ -16,7 +19,7 @@ var msg = document.createElement("p");
 msg.style.left = "50vw";
 msg.style.textAlign = "center";
 document.body.append(msg);
-msg.innerHTML = "Расставьте элементы в порядке возрастания ценности (с вашей точки зрения)"
+msg.innerHTML = "Расставьте элементы в порядке возрастания ценности (с Вашей точки зрения)"
 msg.style.fontSize = "20px";
 msg.style.fontFamily = "\'Cousine\', monospace";
 
@@ -44,7 +47,7 @@ button.style.fontSize = "20px";
 button.style.fontFamily = "\'Cousine\', monospace";
 
 function finish_sort() {
-    msg.innerHTML = "Найдите предмет с альтернативной стоимостью";
+    msg.innerHTML = "Найдите предмет, являющийся для вас альтернативной стоимостью";
     this.parentNode.removeChild(this);
     lock_drag_and_drop();
     for (let i = 0; i < images_names.length; ++i) {
@@ -57,6 +60,7 @@ function finish_sort() {
 }
 
 function right() {
+    success_sound.play();
     this.parentNode.removeChild(this);
     this.onclick = null;
     this.src = "res/right.png";
