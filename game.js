@@ -12,7 +12,7 @@ success_sound.volume = 0.3;
 var images = [];
 var length = 100/images_names.length;
 var picdimension = length * 18 / 20;
-var offset = length - picdimension;
+var offset = (length - picdimension) / 2;
 
 var game = document.getElementById("game");
 var msg = document.createElement("p");
@@ -38,13 +38,14 @@ for (var i = 0; i < images_names.length; ++i) {
 
 var button = document.createElement("button");
 button.style.position = "absolute";
-button.style.left = "42.5vw";
-button.style.width = "17.5vw";
+var button_width = 0.875 * length;
+button.style.left = ((100 - button_width)/2).toString()  + "vw";
+button.style.width = button_width.toString() + "vw";
 button.style.height = (picdimension / 5).toString() + "vw";
 button.style.top = "27.5vw";
 button.style.textAlign = "center";
 button.innerText = "Продолжить";
-button.style.fontSize = "3vh";
+button.style.fontSize = "2vw";
 button.style.fontFamily = "\'Cousine\', monospace";
 
 function finish_sort() {
