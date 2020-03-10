@@ -20,7 +20,7 @@ msg.style.left = "50vw";
 msg.style.textAlign = "center";
 document.body.append(msg);
 msg.innerHTML = "Расставьте элементы в порядке возрастания ценности (с Вашей точки зрения)"
-msg.style.fontSize = "20px";
+msg.style.fontSize = "2vw";
 msg.style.fontFamily = "\'Cousine\', monospace";
 
 for (var i = 0; i < images_names.length; ++i) {
@@ -38,12 +38,13 @@ for (var i = 0; i < images_names.length; ++i) {
 
 var button = document.createElement("button");
 button.style.position = "absolute";
-button.style.width = (0.7 * picdimension).toString() + "vw";
+button.style.left = "42.5vw";
+button.style.width = "17.5vw";
 button.style.height = (picdimension / 5).toString() + "vw";
-button.style.top = "25vw";
-button.style.left =(offset + length * ((images_names.length - 1) / 2) + 0.15 * picdimension).toString()  + "vw";
+button.style.top = "27.5vw";
+button.style.textAlign = "center";
 button.innerText = "Продолжить";
-button.style.fontSize = "20px";
+button.style.fontSize = "3vh";
 button.style.fontFamily = "\'Cousine\', monospace";
 
 function finish_sort() {
@@ -65,7 +66,7 @@ function right() {
     this.onclick = null;
     this.src = "res/right.png";
     msg.innerHTML = "Отлично";
-    msg.style.top = "10vh";
+    msg.style.top = "2vw";
     msg.style.fontSize = "30vh";
     for (let i = 0; i < images_names.length; ++i){
         if (i != images_names.length - 2) {
