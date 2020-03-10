@@ -1,0 +1,43 @@
+div.title {
+    margin: 0 auto;
+    width: 35%;
+    text-align: center;
+    border-bottom: 1px solid green;
+    font-size: 12pt;
+    font-family: Cousine, monospace;
+}
+
+div.intro {
+    margin: 0 auto;
+    width: 40%;
+    padding-left: 2vw;
+    border-left: green groove;
+    background-color: greenyellow;
+    font-style: italic;
+    font-family: Cousine, monospace;
+}
+
+div.main {
+    margin: 0 auto;
+    width: 80%;
+    font-family: Cousine, monospace;
+}
+
+div.definition {
+    margin: 0 auto;
+    width: 60%;
+    padding-left: 2vw;
+    border-left: brown groove;
+    background-color: blanchedalmond;
+    font-style: italic;
+    font-family: Cousine, monospace;
+}
+
+img.left {
+    width: 40%;
+}
+
+img.right {
+    width: 40%;
+    float: right;
+}
