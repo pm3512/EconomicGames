@@ -1,16 +1,39 @@
-var images_names = [
+var images_sets = [
+    [
     "res/gold.png",
     "res/ipad.png",
     "res/godfood.png",
     "res/car.png",
     "res/donut.png"
+    ],
+    [
+    "res/ball.jpg",
+    "res/boots.jpg",
+    "res/gloves.jpg",
+    "res/ski.png",
+    "res/sword.png"
+    ],
+    [
+    "res/chair.png",
+    "res/coach.png",
+    "res/rocker.jpg",
+    "res/stool.png",
+    "res/throne.png"
+    ]
 ];
+
+var current_images_number = localStorage.getItem("cur_img_num");
+if(current_images_number == null || current_images_number == images_sets.length) {
+    current_images_number = 0;
+}
+localStorage.setItem("cur_img_num", parseInt(current_images_number) + 1);
+var images_names = images_sets[current_images_number];
 
 var success_sound = new Audio();
 success_sound.src = "res/success_sound.mp3";
 success_sound.volume = 0.3;
 var images = [];
-var length = 100/images_names.length;
+var length = 100 / images_names.length;
 var picdimension = length * 18 / 20;
 var offset = (length - picdimension) / 2;
 
@@ -65,7 +88,6 @@ function right() {
     success_sound.play();
     this.parentNode.removeChild(this);
     this.onclick = null;
-    this.src = "res/right.png";
     msg.innerHTML = "Отлично";
     msg.style.top = "2vw";
     msg.style.fontSize = "30vh";
