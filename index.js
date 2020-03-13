@@ -9,7 +9,7 @@ iframe.style.left = "10vw";
 function set_iframe_size_style() {
     var w = document.documentElement.clientWidth;
     var h = document.documentElement.clientHeight;
-    if (h > (320 / 0.6)) {
+    if (h > (200 / 0.6)) {
         iframe.style.height = "60vh";
     } else {
         iframe.style.height = "200px";
