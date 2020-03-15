@@ -32,12 +32,3 @@ div.definition {
     font-style: italic;
     font-family: Cousine, monospace;
 }
-
-img.left {
-    width: 40%;
-}
-
-img.right {
-    width: 40%;
-    float: right;
-}
