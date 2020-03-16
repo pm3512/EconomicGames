@@ -11,13 +11,14 @@ set_element_size_style();
 
 iframe.style.position = "relative";
 iframe.style.width = "80vw";
+iframe.style.height = "30vw";
 iframe.style.left = "10vw";
 
 function set_element_size_style() {
     var w = document.documentElement.clientWidth;
     var h = document.documentElement.clientHeight;
-    if (h > 200 / 0.6) {
-        iframe.style.height = "60vh";
+    if (w > 200 / 0.3) {
+        iframe.style.height = "30vw";
     } else {
         iframe.style.height = "200px";
     }
