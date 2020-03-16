@@ -26,13 +26,9 @@ function set_element_size_style() {
     } else {
         iframe.style.width = "640px";
     }
-    if(w > 200 / 0.4) {
-        left.style.width = "30vw";
-        right.style.width = "30vw";
-    } else {
-        left.style.width = "200px";
-        right.style.width = "200px";
-    }
+        
+    left.style.width = "30vw";
+    right.style.width = "30vw";
 }
 
 window.addEventListener("resize", set_element_size_style);
