@@ -1,34 +1,60 @@
+td.navigation_bar {
+  border-right-style: dashed;
+  border-right-color: brown;
+  border-right-width: 2px;
+  vertical-align: top;
+}
+
+td.navigation_bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+td.navigation_bar ul li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+td.navigation_bar ul li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+div {
+  margin: 0 auto;
+  font-family: Roboto;
+  position: relative;
+}
+
 div.title {
-    margin: 0 auto;
-    width: 35%;
-    text-align: center;
-    border-bottom: 1px solid green;
-    font-size: 12pt;
-    font-family: Cousine, monospace;
+  width: 35%;
+  text-align: center;
+  border-bottom: 1px solid green;
 }
 
 div.intro {
-    margin: 0 auto;
-    width: 40%;
-    padding-left: 2vw;
-    border-left: green groove;
-    background-color: greenyellow;
-    font-style: italic;
-    font-family: Cousine, monospace;
+  width: 40%;
+  padding-left: 2vw;
+  border-left: green groove;
+  background-color: greenyellow;
+  font-style: italic;
+  font-size: 20px;
 }
 
 div.main {
-    margin: 0 auto;
-    width: 80%;
-    font-family: Cousine, monospace;
+  width: 80%;
+  font-size: 20px;
 }
 
 div.definition {
-    margin: 0 auto;
-    width: 60%;
-    padding-left: 2vw;
-    border-left: brown groove;
-    background-color: blanchedalmond;
-    font-style: italic;
-    font-family: Cousine, monospace;
+  width: 60%;
+  padding-left: 2vw;
+  border-left: brown groove;
+  background-color: blanchedalmond;
+  font-style: italic;
+  font-size: 20px;
 }
