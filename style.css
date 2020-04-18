@@ -9,7 +9,7 @@ td.navigation_bar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 200px;
+  width: 150px;
   background-color: #f1f1f1;
 }
 td.navigation_bar ul li a {
@@ -46,15 +46,26 @@ div.intro {
 }
 
 div.main {
-  width: 80%;
+  width: 60%;
   font-size: 20px;
 }
 
 div.definition {
-  width: 60%;
+  width: 40%;
   padding-left: 2vw;
   border-left: brown groove;
   background-color: blanchedalmond;
   font-style: italic;
   font-size: 20px;
+}
+
+img.equation {
+  vertical-align: middle;
+}
+
+img.single_image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
 }

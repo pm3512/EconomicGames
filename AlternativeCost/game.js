@@ -1,24 +1,24 @@
 var images_sets = [
   [
-    "res/gold.png",
-    "res/ipad.png",
-    "res/godfood.png",
-    "res/car.png",
-    "res/donut.png",
+    "../res/gold.png",
+    "../res/ipad.png",
+    "../res/godfood.png",
+    "../res/car.png",
+    "../res/donut.png",
   ],
   [
-    "res/ball.jpg",
-    "res/boots.jpg",
-    "res/gloves.jpg",
-    "res/ski.png",
-    "res/sword.png",
+    "../res/ball.jpg",
+    "../res/boots.jpg",
+    "../res/gloves.jpg",
+    "../res/ski.png",
+    "../res/sword.png",
   ],
   [
-    "res/chair.png",
-    "res/coach.png",
-    "res/rocker.jpg",
-    "res/stool.png",
-    "res/throne.png",
+    "../res/chair.png",
+    "../res/coach.png",
+    "../res/rocker.jpg",
+    "../res/stool.png",
+    "../res/throne.png",
   ],
 ];
 
@@ -33,7 +33,7 @@ localStorage.setItem("cur_img_num", parseInt(current_images_number) + 1);
 var images_names = images_sets[current_images_number];
 
 var success_sound = new Audio();
-success_sound.src = "res/success_sound.mp3";
+success_sound.src = "../res/success_sound.mp3";
 success_sound.volume = 0.3;
 var images = [];
 var length = 100 / images_names.length;
@@ -111,7 +111,7 @@ function right() {
 function wrong() {
   this.onclick = null;
   msg.innerHTML = "Попробуйте еще раз";
-  this.src = "res/wrong.png";
+  this.src = "../res/wrong.png";
 }
 
 button.onclick = finish_sort;
