@@ -9,7 +9,9 @@ var on_submit = function() {
             default: return 'вопроса';
         }
     }
-
+    let success_sound = new Audio();
+    success_sound.src = "../res/success_sound.mp3";
+    success_sound.volume = 0.3;
     inputs = [];
     right_answers = [0, 1, 0, 1, 0];
     for (let i = 1; i <= 5; ++i) {
@@ -30,5 +32,12 @@ var on_submit = function() {
         }
     }
     document.getElementById('score').innerText = "Вы ответили правильно на " + score.toString() + " " + get_word(score) + " из 5!";
+    if (score == 5) {
+        success_sound.play();
+        confetti.start();
+        setTimeout(function () {
+            confetti.stop();
+          }, 2000);
+    }
     return false;
 }
