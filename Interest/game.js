@@ -1,4 +1,15 @@
 var on_submit = function() {
+    function get_word(score) {
+        switch(score) {
+            case 1: return 'вопрос';
+            break;
+            case 0:
+            case 5: return 'вопросов';
+            break;
+            default: return 'вопроса';
+        }
+    }
+
     inputs = [];
     right_answers = [0, 1, 0, 1, 0];
     for (let i = 1; i <= 5; ++i) {
@@ -18,6 +29,6 @@ var on_submit = function() {
             inputs[i][1 - right_answers[i]].parentElement.style.backgroundColor = "red";
         }
     }
-    document.getElementById('score').innerText = "Вы ответили правильно на " + score.toString() + " вопросов из 5!";
+    document.getElementById('score').innerText = "Вы ответили правильно на " + score.toString() + " " + get_word(score) + " из 5!";
     return false;
 }
