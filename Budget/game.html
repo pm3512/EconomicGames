@@ -5,11 +5,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../style.css" />
-    <script src="game.js"></script>
 </head>
 
 <body>
+    <p id='bankStoredValue'></p>
+    <p id='bankInterest'></p>
+    <p id='incomeValue'></p>
+    <p id='spendingsValue'></p>
+    <p id='debtValue'></p>
+    <p id='chosenValue'></p>
+    <p><input id="range" onchange="update_slider();" type="range" min="-50" max="100" step="1" value="50"></p>
+    <p><button id="submit" onclick="update();">Сделать ход</button></p>
 
 </body>
+<script src="game.js"></script>
 
 </html>
