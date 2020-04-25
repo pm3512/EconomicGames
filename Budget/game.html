@@ -8,15 +8,44 @@
 </head>
 
 <body>
-    <p id='bankStoredValue'></p>
-    <p id='bankInterest'></p>
-    <p id='incomeValue'></p>
-    <p id='spendingsValue'></p>
-    <p id='debtValue'></p>
-    <p id='chosenValue'></p>
-    <p><input id="range" onchange="update_slider();" type="range" min="-50" max="100" step="1" value="50"></p>
-    <p><button id="submit" onclick="update();">Сделать ход</button></p>
-
+    <div>
+        <p>Доход к концу месяца: <val id='income_value'></val> рублей</val>
+        </p>
+        <p>Ваши сбережения: <val id='savings_value'></val> рублей</p>
+        <p>Score: <val id='score_value'></val> points</p>
+    </div>
+    <div id='essentials_stats'>
+        <p>Необходимые траты в этот месяц:</p>
+        <table id='essentials_list'>
+        </table>
+        <p>Итого к оплате: <val id='essentials_sum'></val> рублей</p>
+    </div>
+    <div id='not_essentials_shop'>
+        <p>Магазин со всяким</p>
+        <table id='not_essentials_list'>
+        </table>
+        <p>Итого к оплате: <val id='not_essentials_sum'></val> рублей</p>
+    </div>
+    <div id='debt_info'>
+        <p>Вы взяли <val id='debt_value'></val> рублей у друга в долг</p>
+        <p>Можете взять еще <val id='max_allowed_debt_value'></val> рублей. Но нужно ли оно вам?</p>
+        <p><input id='debt_range' onchange="update_debt_slider();" type="range"></p>
+        <p><button onclick='debt_update();'>Взять <val id='new_debt_value'></val> рублей в долг</button></p>
+        <p>Может стоит подумать о возврате долга?</p>
+        <p><input id='debt_return_range' onchange="update_debt_return_slider();" type="range"></input></p>
+        <p><button onclick='return_debt_update();'>Отдать <val id='return_debt_value'></val> рублей</button></p>
+    </div>
+    <div id='bank_info'>
+        <p>У вас лежит <val id='bank_amount'></val> рублей в банке</p>
+        <p>Можете положить еще. К концу игры вы получите +<val id='bank_interest'></val>% к вашим вложениям в банк
+        </p>
+        <p><input id='bank_range' onchange=" update_bank_slider();" type="range"></p>
+        <p><button onclick='bank_update();'>Положить <val id='new_bank_value'></val> рублей в банк</button></p>
+    </div>
+    <div>
+        <p id='latest_news'>Ничего нового. No news is good news =)</p>
+    </div>
+    <p><button onclick='move_to_next_month();'>Прожить еще один месяц</button></p>
 </body>
 <script src="game.js"></script>
 
