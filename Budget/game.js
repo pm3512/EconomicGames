@@ -1,33 +1,33 @@
-var savings_elem = document.getElementById('savings_value');
-var essentials_sum_elem = document.getElementById('essentials_sum');
-var not_essentials_sum_elem = document.getElementById('not_essentials_sum');
-var debt_elem = document.getElementById('debt_value');
-var debt_range = document.getElementById('debt_range');
-var debt_button = document.getElementById('new_debt_value');
-var bank_elem = document.getElementById('bank_amount');
-var bank_range = document.getElementById('bank_range');
-var bank_button = document.getElementById('new_bank_value');
-var not_essentials_list_elem = document.getElementById('not_essentials_list');
-var essentials_list_elem = document.getElementById('essentials_list');
-var latest_news_elem = document.getElementById('latest_news');
-var incomes_elem = document.getElementById('income_value');
-var score_elem = document.getElementById('score_value');
-var bank_interest_elem = document.getElementById('bank_interest');
-var debt_return_range = document.getElementById('debt_return_range');
-var debt_return_button = document.getElementById('return_debt_value');
-var max_allowed_debt_elem = document.getElementById('max_allowed_debt_value');
+let savings_elem = document.getElementById('savings_value');
+let essentials_sum_elem = document.getElementById('essentials_sum');
+let not_essentials_sum_elem = document.getElementById('not_essentials_sum');
+let debt_elem = document.getElementById('debt_value');
+let debt_range = document.getElementById('debt_range');
+let debt_button = document.getElementById('new_debt_value');
+let bank_elem = document.getElementById('bank_amount');
+let bank_range = document.getElementById('bank_range');
+let bank_button = document.getElementById('new_bank_value');
+let not_essentials_list_elem = document.getElementById('not_essentials_list');
+let essentials_list_elem = document.getElementById('essentials_list');
+let latest_news_elem = document.getElementById('latest_news');
+let incomes_elem = document.getElementById('income_value');
+let score_elem = document.getElementById('score_value');
+let bank_interest_elem = document.getElementById('bank_interest');
+let debt_return_range = document.getElementById('debt_return_range');
+let debt_return_button = document.getElementById('return_debt_value');
+let max_allowed_debt_elem = document.getElementById('max_allowed_debt_value');
 
-var month = 0;
-var months_count = 5;
-var savings = 100000;
-var score = 0;
+let month = 0;
+let months_count = 5;
+let savings = 100000;
+let overall_benefit = 0;
 
-var debt_amount = 0;
-var bank_amount = 0;
-var allowed_debt = 0;
-var bank_interest = 1.02;
+let debt_amount = 0;
+let bank_amount = 0;
+let allowed_debt = 0;
+let bank_interest = 1.02;
 
-var essentials = [
+let essentials = [
     [
         {name: "на кредит за автомобиль", cost: 50000},
         {name: "на учебники", cost: 3000},
@@ -57,7 +57,7 @@ var essentials = [
         {name: "срочный ремонт", cost: 30000},
     ],
 ];
-var not_essentials = [
+let not_essentials = [
     [
         {name: "кофе в старбакс", cost: 500, benefit: 300},
         {name: "пожрать в макдаке", cost: 300, benefit: 500},
@@ -85,7 +85,7 @@ var not_essentials = [
     ],
 ];
 
-var incomes_table = [
+let incomes_table = [
     20000,
     20000,
     30000,
@@ -93,19 +93,19 @@ var incomes_table = [
     40000
 ];
 
-var update_bank_slider = function() {
+let update_bank_slider = function() {
     bank_button.innerText = bank_range.value;
 };
 
-var update_debt_slider = function() {
+let update_debt_slider = function() {
     debt_button.innerText = debt_range.value;
 };
 
-var update_debt_return_slider = function() {
+let update_debt_return_slider = function() {
     debt_return_button.innerText = debt_return_range.value;
 };
 
-var generate_essential_good_div = function(good) {
+let generate_essential_good_div = function(good) {
     let result_elem = document.createElement('tr');
     let result_name_elem = document.createElement('td');
     result_name_elem.innerText = good.name;
@@ -116,7 +116,7 @@ var generate_essential_good_div = function(good) {
     return result_elem;
 };
 
-var generate_not_essential_good_div = function(good, index) {
+let generate_not_essential_good_div = function(good, index) {
     let result_elem = document.createElement('tr');
     let result_name_elem = document.createElement('td');
     result_name_elem.innerText = good.name;
@@ -139,7 +139,7 @@ var generate_not_essential_good_div = function(good, index) {
     return result_elem;
 };
 
-var generate_essentials_table = function(goods) {
+let generate_essentials_table = function(goods) {
     essentials_list_elem.innerHTML = '';
     let sum = 0;
     for (let i = 0; i < goods.length; ++i) {
@@ -151,7 +151,7 @@ var generate_essentials_table = function(goods) {
     essentials_sum_elem.innerText = sum.toString();
 };
 
-var generate_not_essentials_table = function(goods) {
+let generate_not_essentials_table = function(goods) {
     not_essentials_list_elem.innerHTML = '';
     for (let i = 0; i < goods.length; ++i) {
         let div = generate_not_essential_good_div(goods[i], i);
@@ -160,56 +160,56 @@ var generate_not_essentials_table = function(goods) {
     not_essentials_sum_elem.innerText = '0';
 }
 
-var update_savings = function() {
+let update_savings = function() {
     savings_elem.innerText = savings.toString();
 };
 
-var update_income = function() {
+let update_income = function() {
     incomes_elem.innerText = incomes_table[month].toString();
 }
 
-var update_score = function() {
-    score_elem.innerText = score.toString();
+let update_score = function() {
+    score_elem.innerText = overall_benefit.toString();
 }
 
-var handle_not_essential_button_press = function(id) {
+let handle_not_essential_button_press = function(id) {
     let button = document.getElementById(id);
     if (button.innerText == 'Купить') {
         button.innerText = 'Не покупать';   
-        var currentSum = parseInt(not_essentials_sum_elem.innerText);
+        let currentSum = parseInt(not_essentials_sum_elem.innerText);
         currentSum += not_essentials[month][id].cost;
         not_essentials_sum_elem.innerText = currentSum.toString();
     } else {
         button.innerText = 'Купить';   
-        var currentSum = parseInt(not_essentials_sum_elem.innerText);
+        let currentSum = parseInt(not_essentials_sum_elem.innerText);
         currentSum -= not_essentials[month][id].cost;
         not_essentials_sum_elem.innerText = currentSum.toString();
     }
 };
 
-var debt_slider_update = function () {
+let debt_slider_update = function () {
     debt_range.min = 0;
     debt_range.max = allowed_debt;
     debt_range.value = 0;
     update_debt_slider();
 };
 
-var bank_slider_update = function() {
+let bank_slider_update = function() {
     bank_range.min = 0;
     bank_range.max = savings;
     bank_range.value = 0;
     update_bank_slider();
 };
 
-var return_debt_slider_update = function() {
+let return_debt_slider_update = function() {
     debt_return_range.min = 0;
     debt_return_range.max = Math.min(debt_amount, savings);
     debt_return_range.value = 0;
     update_debt_return_slider();
 };
 
-var debt_update = function() {
-    var sum = parseInt(debt_range.value);
+let debt_update = function() {
+    let sum = parseInt(debt_range.value);
     if (sum < 0 || sum > allowed_debt) {
         return;
     }
@@ -227,8 +227,8 @@ var debt_update = function() {
     update_debt_return_slider();
 };
 
-var bank_update = function() {
-    var sum = parseInt(bank_range.value);
+let bank_update = function() {
+    let sum = parseInt(bank_range.value);
     if (sum < 0 || sum > savings) {
         return;
     }
@@ -242,8 +242,8 @@ var bank_update = function() {
     update_debt_return_slider();
 };
 
-var return_debt_update = function() {
-    var sum = parseInt(debt_return_range.value);
+let return_debt_update = function() {
+    let sum = parseInt(debt_return_range.value);
     if (sum < 0 || sum > Math.min(savings, debt_amount)) {
         return;
     }
@@ -257,24 +257,24 @@ var return_debt_update = function() {
     bank_slider_update();
 };
 
-var not_essential_selected = function(ind) {
+let not_essential_selected = function(ind) {
     return  document.getElementById(ind.toString()).innerText != 'Купить';
 };
 
-var substract_spendings = function() {
-    for (var i = 0; i < essentials[month].length; ++i) {
+let substract_spendings = function() {
+    for (let i = 0; i < essentials[month].length; ++i) {
         savings -= essentials[month][i].cost;
     }
-    for (var i = 0; i < not_essentials[month].length; ++i) {
+    for (let i = 0; i < not_essentials[month].length; ++i) {
         if (not_essential_selected(i)) {
             savings -= not_essentials[month][i].cost;
-            score += not_essentials[month][i].benefit;
+            overall_benefit += not_essentials[month][i].benefit;
         }
     }
-    score_elem.innerHTML = score.toString();
+    score_elem.innerHTML = overall_benefit.toString();
 };
 
-var update_view = function() {
+let update_view = function() {
     update_score();
     update_income();
     update_savings();
@@ -286,17 +286,28 @@ var update_view = function() {
     return_debt_slider_update();
 }
 
-var move_to_next_month = function() {
+let handle_debt_failure = function() {
+    alert('Вы попали в долговую яму! GAME OVER');
+    location = location;
+};
+
+let handle_success = function() {
+    let score = Math.round(savings + overall_benefit + (bank_amount * bank_interest) - debt_amount); 
+    alert('Вы выжили! Ваш score: ' + score.toString());
+    location = location;
+};
+
+let move_to_next_month = function() {
     substract_spendings();
     savings += incomes_table[month];
     if (savings < 0) {
-        alert('Вы попали в долговую яму');
-        //отсюда какой-нибудь конец игры
+        handle_debt_failure();
+        return false;
     }
     month++;
     if (month == months_count) {
-        alert('Конец игры');
-        //отсюда какой-нибудь конец игры
+        handle_success();
+        return false;
     }
     update_view();
 };
