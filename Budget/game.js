@@ -9,7 +9,6 @@ let bank_range = document.getElementById('bank_range');
 let bank_button = document.getElementById('new_bank_value');
 let not_essentials_list_elem = document.getElementById('not_essentials_list');
 let essentials_list_elem = document.getElementById('essentials_list');
-let latest_news_elem = document.getElementById('latest_news');
 let incomes_elem = document.getElementById('income_value');
 let score_elem = document.getElementById('score_value');
 let bank_interest_elem = document.getElementById('bank_interest');
@@ -131,6 +130,7 @@ let generate_not_essential_good_div = function(good, index) {
     result_button.setAttribute('onclick', 
     'void handle_not_essential_button_press(parseInt(this.id));');
     result_button.innerText = 'Купить';
+    result_button.className = 'button2';
     result_button_elem.appendChild(result_button);
     result_elem.appendChild(result_name_elem);
     result_elem.appendChild(result_cost_elem);
@@ -292,13 +292,14 @@ let handle_debt_failure = function() {
 };
 
 let handle_success = function() {
-    let score = Math.round(savings + overall_benefit + (bank_amount * bank_interest) - debt_amount); 
+    let score = Math.round(savings + overall_benefit + bank_amount  - debt_amount); 
     alert('Вы выжили! Ваш score: ' + score.toString());
     location = location;
 };
 
 let move_to_next_month = function() {
     substract_spendings();
+    bank_amount = bank_amount * bank_interest;
     savings += incomes_table[month];
     if (savings < 0) {
         handle_debt_failure();
