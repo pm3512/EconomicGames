@@ -386,8 +386,8 @@ let handle_success = function() {
 
 let move_to_next_month = function() {
   substract_spendings();
-  bank_amount = bank_amount * bank_interest;
-  savings += incomes_table[month];
+  bank_amount = Math.round(bank_amount * bank_interest);
+  bank_elem.innerText = bank_amount.toString();
   if (savings < 0) {
     handle_debt_failure();
     return false;
@@ -397,6 +397,8 @@ let move_to_next_month = function() {
     handle_success();
     return false;
   }
+
+  savings += incomes_table[month];
   update_view();
 };
 
@@ -405,4 +407,5 @@ bank_elem.innerText = '0';
 bank_interest_elem.innerText =
     Math.round(((bank_interest - 1) * 100)).toString();
 
+savings += incomes_table[month];
 update_view();
