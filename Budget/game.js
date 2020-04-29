@@ -70,6 +70,7 @@ let essentials = [
 ];
 
 let not_essentials = [
+
   [
 
     {
@@ -90,71 +91,57 @@ let not_essentials = [
       benefit: 6000
     },
 
-    {name: 'Книга «Фрикономика»', cost: 1500, benefit: 2000},
+    {name: 'Книга «Фрикономика»', cost: 1500, benefit: 1700}
 
   ],
 
   [
 
-    {name: 'билеты на матч «Спартака»', cost: 8000, benefit: 10000},
+    {name: 'билеты на матч «Спартака»', cost: 5000, benefit: 5100},
 
     {
       name: 'Ограниченная коллекция кроссовок от вашего любимого певца',
       cost: 10000,
-      benefit: 13000
+      benefit: 12000
     },
 
-    {name: 'СПА-салон. 6 сеансов', cost: 12000, benefit: 14000},
+    {name: 'СПА-салон. 6 сеансов', cost: 12000, benefit: 13000}
 
   ],
 
   [
-
-    {
-      name:
-          'Друг предлагает инвестировать в компанию его друзей. Он уверен, что это принесет вам 5000 дополнительных рублей через месяц.',
-      cost: 20000,
-      benefit: 0
-    },  //на самом деле чувак просто потеряет деньги (benefit - -500 в
-        //начале след месяца)
 
     {
       name: 'Новая компьютерная игра в жанре экшн-шутер',
       cost: 4000,
-      benefit: 4500
+      benefit: 4800
     },
 
-    {
-      name: 'Пожертвования в благотворительный фонд',
-      cost: 5000,
-      benefit: 2000
-    },  //если так нельзя, то 5000 b 2000
+    {name: 'Пожертвования в благотворительный фонд', cost: 8000, benefit: 12000}
 
   ],
 
   [
 
-    {name: 'Заказ пиццы на дом', cost: 1000, benefit: 1500},
+    {name: 'Заказ пиццы на дом', cost: 1000, benefit: 1200},
 
-    {name: 'Посещение книжной выставки', cost: 2000, benefit: 3000},
+    {name: 'Посещение книжной выставки', cost: 2000, benefit: 2600},
 
     {
       name: 'Посещение последнего концерта Эминема в России',
       cost: 20000,
-      benefit: 21000
+      benefit: 25000
     },
 
-    {name: 'Прыжок с парашютом', cost: 5000, benefit: 5100}
+    {name: 'Прыжок с парашютом', cost: 5000, benefit: 800}
 
   ],
 
   [
 
-    {name: 'Новый фильм Marvel в кино', cost: 500, benefit: 600},
+    {name: 'Новый фильм Marvel в кино', cost: 500, benefit: 700},
 
-    {name: 'Ставка на спорт', cost: 1000, benefit: 1150},
-
-    {name: 'Новый модный номер на машину (Н700НН)', cost: 10000, benefit: 13000}
+    {name: 'Новый модный номер на машину (Н700НН)', cost: 10000, benefit: 10500}
 
   ],
 
@@ -391,7 +378,8 @@ let handle_debt_failure = function() {
 };
 
 let handle_success = function() {
-  let score = Math.round(savings + overall_benefit + bank_amount - debt_amount);
+  let score =
+      Math.round(savings + overall_benefit + bank_amount - 1.2 * debt_amount);
   alert('Вы выжили! Ваш score: ' + score.toString());
   location = location;
 };
