@@ -380,7 +380,7 @@ let handle_debt_failure = function() {
 let handle_success = function() {
   let score =
       Math.round(savings + overall_benefit + bank_amount - 1.2 * debt_amount);
-  alert('Вы выжили! Ваш score: ' + score.toString());
+  alert('Вы выжили! Ваш счет: ' + score.toString());
   location = location;
 };
 
